@@ -1,0 +1,130 @@
+\input texinfo   @c -*-texinfo-*-
+
+@c %**start of header
+@setfilename maple.info
+@settitle Maple-laboration, ED1100
+@afourpaper
+@documentencoding UTF-8
+@documentlanguage sv
+@finalout
+@c %**end of header
+
+
+@ifnottex
+@node Top
+@top Maple-laboration, ED1100
+@end ifnottex
+
+@titlepage
+@title Maple-laboration
+@subtitle ED1100, Ingenjörsvetenskap
+@subtitle Introduktion till Maple
+@c @subtitle **Description.**
+@c @c ** start of front page image **
+@c @c If print make a pdf or hard copy with the front cover
+@c @c you may or may not want to remove this.
+@c @image{infoimage,423.5px}
+@c @c ** end of front page image **
+@author
+@end titlepage
+
+
+Ur ditt personnummer hittar du de tre parametrarna @math{(a,b,c)}.
+Välja dina tre sista siffror som är skilda ifrån @math{0}.
+Tag också bort dubbletter och @math{a} skall inte vara @math{1}.
+Välj parametrarna så att @math{a<b<c}.
+
+@*
+@enumerate 1
+@item
+Sätt in varablerna @math{a}, @math{b} och @math{c} i Maple, med deras respektive värde.
+Det vill säga, att om du efter det skriver @code{a; b; c;} så ska Maple skriva ut de
+tre värden som beskrivs ovan.
+
+Dessa värden ska användas i övriga uppgift om inte annat sägs.
+@*
+@item
+Be Maple beräkna:
+@enumerate a
+@item @math{a + b}
+@item @math{a \cdot b^c}
+@item @math{c / a}
+@item @math{|a - b|}, det vill säga absolutbeloppet av @math{a - b}.
+@item @math{\sqrt{c}} på decimal form.
+@*
+@end enumerate
+
+@item
+Utveckla uttrycket @math{(x + p)(x + q)(x + r)}.
+@*
+
+@item
+Förenkla uttrycket @math{x^2 + (ab - c)x - abc}.
+@*
+
+@item
+Betrakta funktionen @math{f(x) = ax^2 + bx - c}.
+@enumerate a
+@item Plotta @math{f(x)}
+@item Testa att plotta den inom ett annat intervall, till exempel från @math{-c} till @math{c}.
+@item Testa även att ändra intervallet för @math{y}.
+@item Hitta nollställena för @math{f(x)}. Det vill säga lös ekvationen @math{f(x) = 0}.
+@*
+@end enumerate
+
+@item
+Beräkna
+@tex
+$ \int\limits_{11}^{\infty} {1 \over {ab + (a - b)x - x^2}} \, dx $.
+@end tex
+@*
+
+@item
+Beräkna
+@tex
+$ \sum\limits_{i = 0}^{\infty} {1 \over {c^i}} $.
+@end tex
+@*
+
+@item
+Derivera
+@tex
+$ {x - \sin(x) \cdot \cos(x)} \over 2 $.
+@end tex
+@*
+
+@item
+Beräkna
+@tex
+$ \lim\limits_{n \to \infty} {n \over {\sqrt{n!}\!\!\!\!\!\!\!\!\!^{^n}\ \ \ }} $.
+@end tex
+@c n:th root must be done this with because \sqrt[n]{x} nor \root{n}{x} works.
+@*
+
+@item
+Betrakta ekvationen @math{\sin(ax) + e^{-bx} - cx = 0}.
+@enumerate a
+@item
+Lös ekvationen grafiskt.@*
+@emph{Ledning}: Du kan ändra axlarna med hjälp av menyvalet axes @click{} properties.
+@item
+Kontroller din lösning med @code{fsolve}.
+@item
+Plotta funktionerna @math{\sin(ax) + e^{-b}} och
+@math{cx} i samma graf, och notera skärningspunkt.
+@*
+@end enumerate
+
+@item
+Deklarera tvåvariabelfunktionen @math{g(x, y) = xy^{a}}.
+@enumerate a
+@item Plotta @math{g(x, y)} med kommandot @code{plot3d} med @code{axes=boxed}.
+@item Vad är värdet för @math{g(b, c)}?
+@*
+@end enumerate
+
+@end enumerate
+
+
+@bye
+
