@@ -35,5 +35,5 @@ clean:
 	    (if [ -f "$(BOOK).$$ext" ]; then unlink "$(BOOK).$$ext"; fi);  \
 	done
 	if [ -d "$(BOOK).t2d" ]; then rm -r "$(BOOK).t2d"; fi
-	if [ -f "$(BOOK).texinfo.back" ]; then unlink "$(BOOK).texinfo.back"; fi
+	if [ -f "$(BOOK).texinfo.bak" ]; then unlink "$(BOOK).texinfo.bak"; fi
 
