@@ -13,6 +13,8 @@
 @ifnottex
 @node Top
 @top Maple-laboration, ED1100
+
+Use PDF, DVI, PS or alike (TeX based) instead.
 @end ifnottex
 
 @titlepage
@@ -110,7 +112,7 @@ Lös ekvationen grafiskt.@*
 @item
 Kontroller din lösning med @code{fsolve}.
 @item
-Plotta funktionerna @math{\sin(ax) + e^{-b}} och
+Plotta funktionerna @math{\sin(ax) + e^{-bx}} och
 @math{cx} i samma graf, och notera skärningspunkt.
 @*
 @end enumerate
