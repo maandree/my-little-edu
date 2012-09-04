@@ -130,3 +130,40 @@ Deklarera tvåvariabelfunktionen @math{g(x, y) = xy^{a}}.
 
 @bye
 
+
+1.      a:=2; b:=3; c:=4;
+
+2a.     a+b;
+ b.     a⋅b^c;
+ c.     c/a;
+ d.     abs(a−b);
+ e.     evalf(sqrt(c));
+
+3.      expand((x+p)⋅(x+q)⋅(x+r));
+
+4.      factor(x^2+(a⋅b−c)−a⋅b⋅c);
+
+5.      f(x):=a⋅x^2+b⋅x−c;
+ a.     plot(f(x));
+ b.     plot(f(x),x=−c..c);
+ c.     plot(f(x),x=−c..c,y=−1..1);
+ d.     solve(f(x)=0);
+
+6.      int(1/(a⋅b+(a−b)⋅x−x^2),x=11..infinity);
+
+7.      sum(1/(c^i),i=0..infinity);
+
+8.      diff((x−sin(x)⋅cos(x))/2,x);
+
+9.      limit(n/((n!)^(1/n)),n=infinity);
+@c      root kan bara användas med konstant n
+
+10.     f(x):=sin(a⋅x)+exp(−b⋅x)−c⋅x;
+ a.     plot(f(x));
+ b.     fsolve(f(x)=0);
+ c.     plot({sin(a⋅x)+exp(−b⋅x),c⋅x});
+
+11.     g(x,y):=x⋅y^a;
+ a.     plot3d(g(x,y),x=−1..1,y=−1..1,axes=boxed);
+ b.     g(b,c);
+
