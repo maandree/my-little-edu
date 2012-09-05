@@ -82,11 +82,10 @@ $ \sum\limits_{i = 0}^{\infty} {1 \over {c^i}} $.
 @*
 
 @item
-Visa att
+Derivera
 @tex
-$ {d \over {dx}} \left ( {{x - \sin(x) \cdot \cos(x)} \over 2} \right ) = {1 \over 2} - {1 \over 2} \cos(x)^2 + {1 \over 2} \sin(x)^2 $, 
+$ {x - \sin(x) \cdot \cos(x)} \over 2 $.
 @end tex
-genom derivering.
 @*
 
 @item
