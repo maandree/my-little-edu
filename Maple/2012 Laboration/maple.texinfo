@@ -36,7 +36,7 @@ Sätt in varablerna @math{a}, @math{b} och @math{c} i Maple, med deras respektiv
 Det vill säga, att om du efter det skriver @code{a; b; c;} så ska Maple skriva ut de
 tre värden som beskrivs ovan.
 
-Dessa värden ska användas i övriga uppgift om inte annat sägs.
+Dessa värden ska användas i övriga uppgifter om inte annat sägs.
 @*
 @item
 Be Maple beräkna:
@@ -104,7 +104,7 @@ Betrakta ekvationen @math{\sin(ax) + e^{-bx} - cx = 0}.
 Lös ekvationen grafiskt.@*
 @emph{Ledning}: Du kan ändra axlarna med hjälp av menyvalet axes @click{} properties.
 @item
-Kontroller din lösning med @code{fsolve}.
+Kontrollera din lösning med @code{fsolve}.
 @item
 Plotta funktionerna @math{\sin(ax) + e^{-bx}} och
 @math{cx} i samma graf, och notera skärningspunkt.
