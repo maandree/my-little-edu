@@ -170,7 +170,7 @@ Deklarera tvåvariabelfunktionen @math{g(x, y) = xy^{a}}.
 
 @item @code{limit(n/((n!)^(1/n)), n=infinity);}
 @*I Maple 15 som finns på @url{progdist.ug.kth.se} kan man inte använda @code{root[n](x)}
-eller @code{root(x, n)} efter de bara accepterar konstanta heltal som @code{n}.
+eller @code{root(x, n)} eftersom de bara accepterar konstanta heltal som @code{n}.
 @*
 
 @item @code{f(x):=sin(a}@math{\cdot}@code{x)+exp(-b}@math{\cdot}@code{x)-c}@math{\cdot}@code{x;}
