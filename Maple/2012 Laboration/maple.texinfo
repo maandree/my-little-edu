@@ -17,90 +17,17 @@
 Use PDF, DVI, PS or alike (TeX based) instead.
 @end ifnottex
 
-@titlepage
-@title Maple-laboration
-@subtitle ED1100, Ingenjörsvetenskap
-@subtitle Introduktion till Maple
-@c @subtitle **Description.**
-@c @c ** start of front page image **
-@c @c If print make a pdf or hard copy with the front cover
-@c @c you may or may not want to remove this.
-@c @image{infoimage,423.5px}
-@c @c ** end of front page image **
-@author
-@end titlepage
 
 
+@heading Maple-laboration för ED1100, Ingenjörsvetenskap
 
-@enumerate 1
-
-@item @code{a:=2; b:=3; c:=4;} antaget att @math{a=2, b=3, c=4}.
-@*
-
-@item
-@enumerate a
-@item @code{a+b;}
-@item @code{a}@math{\cdot}@code{b^c};
-@item @code{c/a;}
-@item @code{abs(a-b);}
-@item @code{evalf(sqrt(c));}
-@*
-@end enumerate
-
-@item @code{expand((x+p)}@math{\cdot}@code{(x+q)}@math{\cdot}@code{(x+r));}
-@*
-
-@item @code{factor(x^2+(a}@math{\cdot}@code{b-c)-a}@math{\cdot}@code{b}@math{\cdot}@code{c);}
-@*
-
-@item @code{f(x):=a}@math{\cdot}@code{x^2+b}@math{\cdot}@code{x-c;}
-@enumerate a
-@item @code{plot(f(x));}
-@item @code{plot(f(x), x=-c..c);}
-@item @code{plot(f(x), x=-c..c, y=-1..1);}
-@item @code{solve(f(x)=0);}
-@*
-@end enumerate
-
-@item @code{int(1/(a}@math{\cdot}@code{b+(a-b)}@math{\cdot}@code{x-x^2), x=11..infinity);}
-@*
-
-@item @code{sum(1/(c^i), i=0..infinity);}
-@*
-
-@item @code{diff((x-sin(x)}@math{\cdot}@code{cos(x))/2,x);}
-@*
-
-@item @code{limit(n/((n!)^(1/n)), n=infinity);}
-@*I Maple 15 som finns på @url{progdist.ug.kth.se} kan man inte använda @code{root[n](x)}
-eller @code{root(x, n)} efter de bara accepterar konstanta heltal som @code{n}.
-@*
-
-@item @code{f(x):=sin(a}@math{\cdot}@code{x)+exp(-b}@math{\cdot}@code{x)-c}@math{\cdot}@code{x;}
-@enumerate a
-@item @code{plot(f(x));}
-@item @code{fsolve(f(x)=0);}
-@item @code{plot(@{sin(a}@math{\cdot}@code{x)+exp(-b}@math{\cdot}@code{x), c}@math{\cdot}@code{x@});}
-@*
-@end enumerate
-
-@item @code{g(x,y):=x}@math{\cdot}@code{y^a;}
-@enumerate a
-@item @code{plot3d(g(x,y), x=-1..1, y=-1..1, axes=boxed);}
-@item @code{g(b,c);}
-@*
-@end enumerate
-
-@end enumerate
-@page
-
-
-
-
+@fonttextsize 10
 Ur ditt personnummer hittar du de tre parametrarna @math{(a,b,c)}.
 Välja dina tre sista siffror som är skilda ifrån @math{0}.
 Tag också bort dubbletter och @math{a} skall inte vara @math{1}.
 Välj parametrarna så att @math{a<b<c}.
+@fonttextsize 11
+
 
 @*
 @enumerate 1
@@ -193,6 +120,76 @@ Deklarera tvåvariabelfunktionen @math{g(x, y) = xy^{a}}.
 @end enumerate
 
 @end enumerate
+
+@page
+
+
+
+
+
+@heading Lösningar
+
+@enumerate 1
+
+@item @code{a:=2; b:=3; c:=4;} antaget att @math{a=2, b=3, c=4}.
+@*
+
+@item
+@enumerate a
+@item @code{a+b;}
+@item @code{a}@math{\cdot}@code{b^c};
+@item @code{c/a;}
+@item @code{abs(a-b);}
+@item @code{evalf(sqrt(c));}
+@*
+@end enumerate
+
+@item @code{expand((x+p)}@math{\cdot}@code{(x+q)}@math{\cdot}@code{(x+r));}
+@*
+
+@item @code{factor(x^2+(a}@math{\cdot}@code{b-c)-a}@math{\cdot}@code{b}@math{\cdot}@code{c);}
+@*
+
+@item @code{f(x):=a}@math{\cdot}@code{x^2+b}@math{\cdot}@code{x-c;}
+@enumerate a
+@item @code{plot(f(x));}
+@item @code{plot(f(x), x=-c..c);}
+@item @code{plot(f(x), x=-c..c, y=-1..1);}
+@item @code{solve(f(x)=0);}
+@*
+@end enumerate
+
+@item @code{int(1/(a}@math{\cdot}@code{b+(a-b)}@math{\cdot}@code{x-x^2), x=11..infinity);}
+@*
+
+@item @code{sum(1/(c^i), i=0..infinity);}
+@*
+
+@item @code{diff((x-sin(x)}@math{\cdot}@code{cos(x))/2,x);}
+@*
+
+@item @code{limit(n/((n!)^(1/n)), n=infinity);}
+@*I Maple 15 som finns på @url{progdist.ug.kth.se} kan man inte använda @code{root[n](x)}
+eller @code{root(x, n)} efter de bara accepterar konstanta heltal som @code{n}.
+@*
+
+@item @code{f(x):=sin(a}@math{\cdot}@code{x)+exp(-b}@math{\cdot}@code{x)-c}@math{\cdot}@code{x;}
+@enumerate a
+@item @code{plot(f(x));}
+@item @code{fsolve(f(x)=0);}
+@item @code{plot(@{sin(a}@math{\cdot}@code{x)+exp(-b}@math{\cdot}@code{x), c}@math{\cdot}@code{x@});}
+@*
+@end enumerate
+
+@item @code{g(x,y):=x}@math{\cdot}@code{y^a;}
+@enumerate a
+@item @code{plot3d(g(x,y), x=-1..1, y=-1..1, axes=boxed);}
+@item @code{g(b,c);}
+@*
+@end enumerate
+
+@end enumerate
+
 
 
 @bye
