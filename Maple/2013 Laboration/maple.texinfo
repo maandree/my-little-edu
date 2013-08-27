@@ -93,7 +93,7 @@ Visa att
 @tex
 $ \lim\limits_{n \to \infty} {n \over {\sqrt{n!}\!\!\!\!\!\!\!\!\!^{^n}\ \ \ }} = e $.
 @end tex
-@c n:th root must be done this with because \sqrt[n]{x} nor \root{n}{x} works.
+@c n:th root must be done this way because \sqrt[n]{x} nor \root{n}{x} works.
 @*
 
 @item
