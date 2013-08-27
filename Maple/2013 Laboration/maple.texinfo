@@ -50,7 +50,7 @@ Be Maple beräkna:
 @end enumerate
 
 @item
-Utveckla uttrycket @math{(x + p)(x + q)(x + r)} till @math{x^3 + x^2 r + x^2 q + x q r + p x^2 + p x r + p q x + p q r}.
+Utveckla uttrycket @math{(x + p)(x + q)(x + r)}.
 @*
 
 @item
@@ -149,6 +149,50 @@ Fibonaccitalen definieras enligt: @math{F_0 = 0}, @math{~F_1 = 1},
 
 
 @vskip 0pt plus 1filll
+
+@heading Korrekta svar
+
+@fonttextsize 10
+Dessa svar är likvärdiga omskrivning som kan används för
+att beräkna värdet. För 3 och 4. ska det ges på samma form.
+För 8. ska samma svar eller ett likvärdigt enkelt uttryck ges.
+@*
+@fonttextsize 11
+
+@enumerate 3
+@item
+@math{x^3 + x^2 r + x^2 q + x q r + p x^2 + p x r + p q x + p q r}
+@*
+
+@item
+@tex
+$ (ab + x)(x - c) $
+@end tex
+@*
+
+@end enumerate
+@enumerate 6
+@item
+@tex
+$ {\log(11 ~-~ a) ~-~ \log(11 ~+~ b)} \over {a ~+~ b} $
+@end tex
+@*
+
+@item
+@tex
+$ {c \over {c ~-~ 1}} $
+@end tex
+@*
+
+@item
+@tex
+$ \sin^2(x) $
+@end tex
+@*
+
+@end enumerate
+
+
 
 @heading Vanliga fel
 
