@@ -112,18 +112,18 @@ Plotta funktionerna @math{\sin(ax) + e^{-bx}} och
 @end enumerate
 
 @item
+För uppgifterna 6–9, skriv det som ska beräknas i vänsterled
+och beräkna det i högerled. Skriv ut @math{a}, @math{b} och @math{c}
+som variabler, och inte med deras värden.
+@*
+
+@item
 Deklarera tvåvariabelfunktionen @math{g(x, y) = xy^{a}}.
 @enumerate a
 @item Plotta @math{g(x, y)} med kommandot @code{plot3d} med @code{axes=boxed}.
 @item Vad är värdet för @math{g(b, c)}?
 @*
 @end enumerate
-
-@item
-För uppgifterna 6–9, skriv det som ska beräknas i vänsterled
-och beräkna det i högerled. Skriv ut @math{a}, @math{b} och @math{c}
-som variabler, och inte med deras värden.
-@*
 
 @item @emph{(extra)}
 Lista de 31 första fibonaccitalen, det vill säga @math{F_0 = 0} till
@@ -224,13 +224,6 @@ eller @code{root(x, n)} eftersom de bara accepterar konstanta heltal som @code{n
 @*
 @end enumerate
 
-@item @code{g(x,y):=x}@math{\cdot}@code{y^a;}
-@enumerate a
-@item @code{plot3d(g(x,y), x=-1..1, y=-1..1, axes=boxed);}
-@item @code{g(b,c);}
-@*
-@end enumerate
-
 @item
 @enumerate 6
 @item @code{Int(1/('a'}@math{\cdot}@code{'b'+('a'-'b')}@math{\cdot}@code{x-x^2), x=11..infinity) =}
@@ -239,6 +232,13 @@ eller @code{root(x, n)} eftersom de bara accepterar konstanta heltal som @code{n
 @item @code{Sum(1/('c'^i), i=0..infinity) = sum(1/(c^i), i=0..infinity);}
 @item @code{Diff((x-Sin(x)}@math{\cdot}@code{Cos(x))/2,x) = diff((x-sin(x)}@math{\cdot}@code{cos(x))/2,x);}
 @item @code{Limit(n/((n!)^(1/n)), n=infinity) = limit(n/((n!)^(1/n)), n=infinity);}
+@*
+@end enumerate
+
+@item @code{g(x,y):=x}@math{\cdot}@code{y^a;}
+@enumerate a
+@item @code{plot3d(g(x,y), x=-1..1, y=-1..1, axes=boxed);}
+@item @code{g(b,c);}
 @*
 @end enumerate
 
