@@ -119,7 +119,7 @@ och beräkna det i högerled. Skriv ut @math{a}, @math{b} och @math{c}
 som variabler, och inte med deras värden.
 @page
 
-@item
+@item @emph{(extra)}
 Deklarera tvåvariabelfunktionen @math{g(x, y) = xy^{a}}.
 @enumerate a
 @item Plotta @math{g(x, y)} med kommandot @command{plot3d} med @code{axes=boxed}.
