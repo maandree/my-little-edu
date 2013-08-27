@@ -118,6 +118,11 @@ Deklarera tvåvariabelfunktionen @math{g(x, y) = xy^{a}}.
 @*
 @end enumerate
 
+@item
+För uppgifterna 6–9, skriv det som ska beräknas i vänsterled
+och beräkna det i högerled. Skriv ut @math{a}, @math{b} och @math{c}
+som variabler, och inte med deras värden.
+
 @end enumerate
 
 
