@@ -84,8 +84,9 @@ $ \sum\limits_{i = 0}^{\infty} {1 \over {c^i}} $.
 @item
 Derivera
 @tex
-$ {x - \sin(x) \cdot \cos(x)} \over 2 $.
+$ {x - \sin(x) \cdot \cos(x)} \over 2 $
 @end tex
+över @math{x}.
 @*
 
 @item
@@ -224,6 +225,17 @@ eller @code{root(x, n)} eftersom de bara accepterar konstanta heltal som @code{n
 @enumerate a
 @item @code{plot3d(g(x,y), x=-1..1, y=-1..1, axes=boxed);}
 @item @code{g(b,c);}
+@*
+@end enumerate
+
+@item
+@enumerate 6
+@item @code{Int(1/('a'}@math{\cdot}@code{'b'+('a'-'b')}@math{\cdot}@code{x-x^2), x=11..infinity) =}
+      @*
+      @code{int(1/(a}@math{\cdot}@code{b+(a-b)}@math{\cdot}@code{x-x^2), x=11..infinity);}
+@item @code{Sum(1/('c'^i), i=0..infinity) = sum(1/(c^i), i=0..infinity);}
+@item @code{Diff((x-Sin(x)}@math{\cdot}@code{Cos(x))/2,x) = diff((x-sin(x)}@math{\cdot}@code{cos(x))/2,x);}
+@item @code{Limit(n/((n!)^(1/n)), n=infinity) = limit(n/((n!)^(1/n)), n=infinity);}
 @*
 @end enumerate
 
