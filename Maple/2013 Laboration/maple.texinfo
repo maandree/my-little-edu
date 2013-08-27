@@ -120,6 +120,36 @@ Deklarera tvåvariabelfunktionen @math{g(x, y) = xy^{a}}.
 
 @end enumerate
 
+
+
+
+
+
+@vskip 0pt plus 1filll
+
+@heading Vanliga fel
+
+@itemize @bullet
+
+@item
+Implicit multiplikation används när explicit multiplikation krävs, det
+vill säga, multiplikationstecken saknas.
+
+@item
+Variabler har inte återställts till att inte ha tilldelats ett värde.
+
+@item
+Konstanten @i{e} skrivs felaktligen med @code{e}, kolla på @command{exp}.
+
+@item
+Ett @code{f} i slutet på ett kommandonamn saknas.
+
+@item
+@code{(x)} saknas.
+ 
+
+@end itemize
+
 @page
 
 
@@ -169,7 +199,7 @@ Deklarera tvåvariabelfunktionen @math{g(x, y) = xy^{a}}.
 
 @item @code{limit(n/((n!)^(1/n)), n=infinity);}
 @*I Maple 15 som finns på @url{progdist.ug.kth.se} kan man inte använda @code{root[n](x)}
-eller @code{root(x, n)} eftersom de bara accepterar konstanta heltal som @code{n}.
+eller @code{root(x, n)} eftersom de bara accepterar konstanta heltal som @code{n}. @c TODO  Maple 17 finns nu
 @*
 
 @item @code{f(x):=sin(a}@math{\cdot}@code{x)+exp(-b}@math{\cdot}@code{x)-c}@math{\cdot}@code{x;}
