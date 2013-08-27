@@ -101,8 +101,10 @@ $ \lim\limits_{n \to \infty} {n \over {\sqrt{n!}\!\!\!\!\!\!\!\!\!^{^n}\ \ \ }} 
 Betrakta ekvationen @math{\sin(ax) + e^{-bx} - cx = 0}.
 @enumerate a
 @item
-Lös ekvationen grafiskt.@*
+Lös ekvationen grafiskt.
+@fonttextsize 10
 @emph{Ledning}: Du kan ändra axlarna med hjälp av menyvalet axes @click{} properties.
+@fonttextsize 11
 @item
 Kontrollera din lösning med @code{fsolve}.
 @item
@@ -115,12 +117,18 @@ Plotta funktionerna @math{\sin(ax) + e^{-bx}} och
 För uppgifterna 6–9, skriv det som ska beräknas i vänsterled
 och beräkna det i högerled. Skriv ut @math{a}, @math{b} och @math{c}
 som variabler, och inte med deras värden.
-@*
+@page
 
 @item
 Deklarera tvåvariabelfunktionen @math{g(x, y) = xy^{a}}.
 @enumerate a
-@item Plotta @math{g(x, y)} med kommandot @code{plot3d} med @code{axes=boxed}.
+@item Plotta @math{g(x, y)} med kommandot @command{plot3d} med @code{axes=boxed}.
+      @fonttextsize 10
+      Värderna i en tvåvariabelfunktions plots på höjden och färgläggs för att
+      man lättare ska se värdernas förhållande. Detta görs automatiskt med
+      @command{plot3d}. Variablernas värden representeras av X- och Y-axlarna,
+      på botten av grafen.
+      @fonttextsize 11
 @item Vad är värdet för @math{g(b, c)}?
 @*
 @end enumerate
