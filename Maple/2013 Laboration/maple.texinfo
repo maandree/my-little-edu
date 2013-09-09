@@ -312,6 +312,50 @@ Bara om n är ett heltal kan man skriva @code{root[n](x)} eller @code{root(x, n)
 @*
 @end enumerate
 
+@item
+@itemize @bullet
+@item Steg 1
+@cartouche
+@example
+a := 0;
+b := 1;
+for i from 2 to 30 do
+    c := a + b;
+    a := b;
+    b = c;
+    print(c);
+od:
+@end example
+@end cartouche
+@fonttextsize 10
+'od' är 'do' baklänges, men du kan också skriva 'end do'.
+Kolonet efter 'od' händrar till delningar mellan 'do' och
+'od' att skrivas ut.
+@fonttextsize 11
+@*
+
+@item Steg 2
+@cartouche
+@example
+F := proc(n) local a, b, c, i;
+    a := 0;
+    b := 1;
+    if n >= 0 then printf(a) fi;
+    if n >= 1 then printf(b) fi;
+    for i from 2 to n do
+        c := a + b;
+        a := b;
+        b = c;
+        print(c);
+    od
+end proc
+
+F(30);
+@end example
+@end cartouche
+
+@end itemize
+
 @end enumerate
 
 
