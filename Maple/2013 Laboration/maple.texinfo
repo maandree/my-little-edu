@@ -274,8 +274,9 @@ Ett @code{f} i slutet på ett kommandonamn saknas.
 @*
 
 @item @code{limit(n/((n!)^(1/n)), n=infinity);}
-@*Bara om n är ett heltal kan man skriva @code{root[n](x)} eller @code{root(x, n)}.
-@*
+@fonttextsize 10
+Bara om n är ett heltal kan man skriva @code{root[n](x)} eller @code{root(x, n)}.
+@fonttextsize 11
 
 @item @code{f(x):=sin(a}@math{\cdot}@code{x)+exp(-b}@math{\cdot}@code{x)-c}@math{\cdot}@code{x;}
 @enumerate a
@@ -296,6 +297,7 @@ Ett @code{f} i slutet på ett kommandonamn saknas.
 @*
 @end enumerate
 
+@page
 @item @code{g(x,y):=x}@math{\cdot}@code{y^a;}
 @enumerate a
 @item @code{plot3d(g(x,y), x=-1..1, y=-1..1, axes=boxed);}
