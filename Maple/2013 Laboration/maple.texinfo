@@ -265,8 +265,7 @@ Ett @code{f} i slutet på ett kommandonamn saknas.
 @*
 
 @item @code{limit(n/((n!)^(1/n)), n=infinity);}
-@*I Maple 15 som finns på @url{progdist.ug.kth.se} kan man inte använda @code{root[n](x)}
-eller @code{root(x, n)} eftersom de bara accepterar konstanta heltal som @code{n}. @c TODO  Maple 17 finns nu
+@*Bara om n är ett heltal kan man skriva @code{root[n](x)} eller @code{root(x, n)}.
 @*
 
 @item @code{f(x):=sin(a}@math{\cdot}@code{x)+exp(-b}@math{\cdot}@code{x)-c}@math{\cdot}@code{x;}
