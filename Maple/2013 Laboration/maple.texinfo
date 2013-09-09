@@ -134,6 +134,14 @@ Deklarera tvåvariabelfunktionen @math{g(x, y) = xy^{a}}.
 @end enumerate
 
 @item @emph{(extra)}
+Räkna med komplexa tal:
+@enumerate a
+@item Visa at @math{e^{i\pi} = -1}.
+@item Beräkna längden av @math{1 + 2i}.
+@*
+@end enumerate
+
+@item @emph{(extra)}
 Lista de 31 första fibonaccitalen, det vill säga @math{F_0 = 0} till
 och med @math{F_{30} = 832040}, genom att som första steg skriva en
 slinga (även kallat loop) och som andra steg genom att skriva en procedur.
@@ -292,6 +300,13 @@ Ett @code{f} i slutet på ett kommandonamn saknas.
 @enumerate a
 @item @code{plot3d(g(x,y), x=-1..1, y=-1..1, axes=boxed);}
 @item @code{g(b,c);}
+@*
+@end enumerate
+
+@item
+@enumerate a
+@item @code{exp(I}@math{\cdot}@code{Pi)}
+@item @code{abs(1 + 2}@math{\cdot}@code{I);}
 @*
 @end enumerate
 
