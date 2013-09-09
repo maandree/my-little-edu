@@ -243,7 +243,7 @@ Ett @code{f} i slutet på ett kommandonamn saknas.
 @item @code{expand((x+p)}@math{\cdot}@code{(x+q)}@math{\cdot}@code{(x+r));}
 @*
 
-@item @code{factor(x^2+(a}@math{\cdot}@code{b-c)-a}@math{\cdot}@code{b}@math{\cdot}@code{c);}
+@item @code{factor(x^2+(a}@math{\cdot}@code{b-c)}@math{\cdot}@code{x-a}@math{\cdot}@code{b}@math{\cdot}@code{c);}
 @*
 
 @item @code{f(x):=a}@math{\cdot}@code{x^2+b}@math{\cdot}@code{x-c;}
