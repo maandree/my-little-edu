@@ -283,7 +283,7 @@ Ett @code{f} i slutet på ett kommandonamn saknas.
       @code{int(1/(a}@math{\cdot}@code{b+(a-b)}@math{\cdot}@code{x-x^2), x=11..infinity);}
 @item @code{Sum(1/('c'^i), i=0..infinity) = sum(1/(c^i), i=0..infinity);}
 @item @code{Diff((x-Sin(x)}@math{\cdot}@code{Cos(x))/2,x) = diff((x-sin(x)}@math{\cdot}@code{cos(x))/2,x);}
-@item @code{Limit(n/((n!)^(1/n)), n=infinity) = limit(n/((n!)^(1/n)), n=infinity);}
+@item @code{Limit(n/((n!)^(1/n)), n=infinity) = limit(surd(n!, n), n=infinity);}
 @*
 @end enumerate
 
