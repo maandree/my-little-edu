@@ -276,6 +276,7 @@ Ett @code{f} i slutet på ett kommandonamn saknas.
 @item @code{limit(n/((n!)^(1/n)), n=infinity);}
 @fonttextsize 10
 Bara om n är ett heltal kan man skriva @code{root[n](x)} eller @code{root(x, n)}.
+@*
 @fonttextsize 11
 
 @item @code{f(x):=sin(a}@math{\cdot}@code{x)+exp(-b}@math{\cdot}@code{x)-c}@math{\cdot}@code{x;}
