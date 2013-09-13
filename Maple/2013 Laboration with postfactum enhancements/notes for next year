@@ -1,0 +1,18 @@
+Students need to get a better understanding of implicit versus explicit multiplication
+right from the start. This can be done by letting them, before using multiplication,
+test examples such as:
+
+	f(x) := x*a;
+	(f + b)(c);
+
+as well as using multi-letter variable names.
+
+
+Question 4 must be rephrased to say factorise rather than simplify.
+
+
+In maple 17, } cannot be typed with a Swedish keyboard. The keyboard can be switch
+to English by (on the schools computers) pressing Shift+Alt. } is located on Shift+¨
+on a English keyboard.
+
+
