@@ -122,7 +122,7 @@ Plotta funktionerna @math{\sin(ax) + e^{-bx}} och
 @end enumerate
 
 @item
-För uppgifterna 6 och 9, skriv det som ska beräknas i vänsterled
+För uppgifterna 7 och 10, skriv det som ska beräknas i vänsterled
 och beräkna det i högerled. Skriv ut @math{a}, @math{b} och @math{c}
 som variabler, och inte med deras värden.
 @page
@@ -303,12 +303,12 @@ Bara om n är ett heltal kan man skriva @code{root[n](x)} eller @code{root(x, n)
 @end enumerate
 
 @item
-@enumerate 6
+@enumerate 7
 @item @code{Int(1/('a'}@math{\cdot}@code{'b'+('a'-'b')}@math{\cdot}@code{x-x^2), x=11..infinity) =}
       @*
       @code{int(1/(a}@math{\cdot}@code{b+(a-b)}@math{\cdot}@code{x-x^2), x=11..infinity);}
 @end enumerate
-@enumerate 9
+@enumerate 10
 @item @code{Limit(n/surd(n!, n), n=infinity) = limit(n/((n!)^(1/n)), n=infinity);}
 @*
 @end enumerate
