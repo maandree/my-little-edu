@@ -1,0 +1,211 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{tabularx}
+\usepackage[utf8]{inputenc}
+\usepackage[pdftex]{graphicx}
+%\usepackage[xetex]{graphicx}
+%\usepackage{fontspec,xunicode}
+\usepackage{color}
+
+\newcommand{\reversevideo}[1]{\colorbox{black}{\!\phantom{X}\!\!\!\color{white}{#1\!}}}
+\fontencoding{T1}
+%\pagestyle{empty}
+%\renewcommand{\familydefault}{\sfdefault}
+%\renewcommand{\familydefault}{\rmdefault}
+
+
+\begin{document}
+
+\title{\Huge{\textbf{Bootprocessen}}}
+\date{}
+\author{}
+\maketitle
+
+
+\section*{BIOS}
+
+(BIOS står för Basic Input/Output System och är det
+första programmet som startar på datorn. Många moderkort
+har sitt egna BIOS, men känt exempel som kan installeras
+på de flesta datorerna är coreboot. Chromeböcker använder
+coreboot.)
+\\
+
+\noindent
+BIOS initiserar viktigt hårdvara såsom RAM-minnet.\footnote{Mer
+specifict så initiseras RAM-minnet och chipset:et,
+samt att hårdvara inbyggt i moderkortet letas upp.}
+\\
+
+\noindent
+Sätter CPU:ns instruktionspekare till början av första hårddisken.
+Användaren kan dock ofta välja vilken enhet som ska köras.
+Innan detta sker kollar BIOS att verkligen finns ett program
+i början av enheten som ska köras. Detta görs genom att kolla
+att första instruktionen sätter värdet på CPU:ns första register
+till 0.
+\\
+
+
+\section*{Boot manager}
+
+Boot manager\footnote{Eller bootstrap manager då 'boot' är en
+förkortning för 'bootstrap'.}, även kallat boot master record
+code (MBR code) eller bootstrap code, är ett litet program
+som ligger i början av en körbar enhet. Programmet är som mest
+440 byte stort, eller 446 vilket inte rekommenderas.
+\\
+
+\noindent
+Boot manager:n initiserar delar av CPU:en (stacken och segment
+register.) Efter detta letar boot manager:n efter en körbar
+\footnote{Kallas ofta bootpartition eller aktiv partition.}
+primär partition\footnote{Visa väljer den första, några väljer
+den sista, men de flesta ger ett felmeddelande om det finns mer
+än en.} på hårddisken.
+\\
+
+\noindent
+När boot manager:n är klar med alla andra av dess uppgifter
+sätter den CPU:ns instruktionspekare till början av den körbara
+partitionen.
+
+
+\section*{Bootloader}
+
+Bootloader, även kallat second-stage boot manager eller
+på grund av förvirning\footnote{Det är även väldigt vanligt
+att de som vet skillnanden säger fel.} boot manager, är ett
+större program. Ofta mellan 1 och 2 MB.
+\\
+
+\noindent
+Bootloader:n har oftast en egen partition (eller delar
+partition med ett operativssytem), men vissa lägger sig
+mellan partitionstabellen och den första partition.
+På grund av detta brukar partitioneringsprogram inte
+tillåta att en partition ligger innan den 2:a megabyten
+på hårddisken.
+\\
+
+\noindent
+Bootloader:ns uppgift är att tillåta användaren välja
+vilket operativsystem som skall starts. Vissa
+operativsystemskärnor kräver dock en bootloader
+för att kunna startas.
+\\
+
+\noindent
+En bootloader brukar även tillåta avändaren att
+välja hur operativsystemet ska starts.
+\\
+
+\noindent
+En bootloader brukar även installeras med en samling
+små program som kan startas direkt utan ett
+operativsystem. Exempel på sådana är minnestestsprograms,
+hårdvaruinformations- och hårdvaruinspektionsprogram,
+ett program som startar om datorn och ett program som
+stänger av datorn.
+\\
+
+\noindent
+En bootloader kan även start en annan bootloader,
+detta kallas för kedjeladdning (chain loading), eller
+en boot manager, till exempel en annan boot manager
+som från en annan hårddisk. Kedjeladdning kan vara
+nedvändigt för att starta operativsystem som inte
+är skrivna för att kunna startas av vilken bootloader
+som helt. Till exempel, om datorn har både GNU/Linux
+och Windows installerat så startas först GNU/Linux's
+bootloader. Om användaren väljer att starta Windows
+så startar bootloader:n då Windows' bootloader efters
+endast Windows' bootloader vet hur man startar Windows.
+
+
+\section*{Operativsystemskärnan}
+
+Operativsystemskärnan (operativ system kernel, eller
+endast kernel) är operativsystemets program som har
+hand om blanda annat att start andra program, låta
+program kommunicera med varandra och låta flera
+program köras samtidigt.
+\\
+
+\noindent
+Operativsystemskärnan brukar lika som en fil på
+bootloader:ns partition på hårddisken. (Detta är
+bland annat så att man kan vilja vilken version
+av kärnan som skall startas.)
+
+
+\section*{initramfs/initrd/initcpio}
+
+Nästa steg är frivilligt och brukar användas.
+Detta steg heter i Unix-ter\-mi\-mo\-lo\-gi initramfs,
+initrd eller ibland initcpio. initramfs är en
+förkortning för 'initialisation RAM filesystem',
+initrd är en förkortning för 'initialisation RAM
+disc', och initcpio är en förkortning för
+'initialisation \texttt{cpio}'. \texttt{cpio} är
+en gammalt filarkiveringsprogram.
+\\
+
+\noindent
+initramfs är ett väldigt minimal installation
+av ett operativsystem. Istället för att vara
+installerat på en partition på hårddisken är
+den sparad som en \texttt{cpio}-fil, eller
+liknande, undansparad på bootloader:ns partition.
+Detta är så att man kan ha flera olika initramfs
+installaderad som man kan välja mellan.
+\\
+
+\noindent
+initramfs viktigtaste uppgifter är att dekryptera
+partitioner och montera partitioner. Ett
+Unix-liknande operativsystem kan man installeras
+flera partition. initramfs är även viktigt om
+man har mjukvaru-RAID eller någonting liknande
+som flerdelar en partition över flera hårddiskar
+utan hårdvarustöd.
+
+
+\section*{init och rc}
+
+\texttt{init} och rc är Unix-terminologi för det sista
+steget. \texttt{init} är ett litet program sen ansvarar
+(bland annat) för att starta rc. Det är idag okänt vad
+rc står för, men det är ett generiskt namn på processen
+som anvarar för att:
+\begin{itemize}
+\item \textbf{initiserar arbetsmiljön},\\
+Detta innefattar bland annat information
+om var man hittar alla program, och
+montera partitioner.
+\newpage
+\item \textbf{starta daemoner} och\\
+Detta är program som körs i bakgrunden.
+Vanliga exempel du hittar på en dator
+med ett Unix-liknande operativsystem är:
+\begin{itemize}
+\item \textbf{dhcpd} (Dynamic Host Configuration Protocol daemon)\\
+Ger tillgång till nätverket.
+\item \textbf{sshd} (Secure Shell daemon)\\
+Möjliggör fjärrinloggning till datorn.
+\item \textbf{udevd} (Userspace Device Management daemon)\\
+Upptäcker när hårdvara kollas in eller tas bort.
+\item \textbf{crond} (cron\footnote{Från 'chronos'.} daemon)\\
+Kör program periodiskt, såsom att renas systemloggar.
+\item \textbf{ntpd} (Network Time Protocol daemon)\\
+Synkroniserar klockan på datorn över Internet mot atomklockor.
+\item \textbf{cupsd} (Common Unix Printing System daemon)\\
+Används för att använda eller dela med sig av skrivmaskiner.
+\end{itemize}
+\item \textbf{starta loginhanterare}
+\end{itemize}
+
+
+\end{document}
+
