@@ -98,7 +98,7 @@ def pages_20_30(p):
     def p29():
         print('   -  Startar daemoner')
     def p30():
-        print('   -  Startar logginghanterare')
+        print('   -  Startar loginhanterare')
     pp(locals(), p)
 
 
