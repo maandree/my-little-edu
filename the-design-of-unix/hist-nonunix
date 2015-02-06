@@ -1,0 +1,28 @@
+#!/bin/bash -e
+
+declare -A events
+while read -r line; do
+    if [ "${line}" = "" ]; then
+	continue
+    fi
+    if [ -z ${events["${line}"]} ]; then
+	events["${line}"]=1
+    else
+	: $(( events["${line}"]++ ))
+    fi
+done
+tmpfile="$(mktemp)"
+for title in "${!events[@]}"; do
+    echo "${title}";
+done | sort "$@" > "${tmpfile}"
+while read -r title; do
+    count=${events["${title}"]}
+    title="${title} (${count})"
+    if (( count > ${#title} )); then
+	title="$(printf '%s%*.s' "${title}" $((count - ${#title})) '')"
+    fi
+    echo $'\e[07m'"${title::$count}"$'\e[27m'"${title:$count}"
+done < "${tmpfile}"
+rm -- "${tmpfile}"
+# 24 lines of code and cheating
+

@@ -1,0 +1,12 @@
+#!/bin/bash -e
+
+while read -r line; do
+    count=$(echo "${line}" | cut -d \  -f 1)
+    title="$(echo "${line}" | cut -d \  -f 1 --complement) (${count})"
+    if (( count > ${#title} )); then
+	title="$(printf '%s%*.s' "${title}" $((count - ${#title})) '')"
+    fi
+    echo $'\e[07m'"${title::$count}"$'\e[27m'"${title:$count}"
+done
+# 8 lines of code
+

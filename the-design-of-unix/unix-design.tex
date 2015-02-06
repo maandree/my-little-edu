@@ -1,0 +1,422 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{tabularx}
+\usepackage[utf8]{inputenc}
+\usepackage[pdftex]{graphicx}
+%\usepackage[xetex]{graphicx}
+%\usepackage{fontspec,xunicode}
+\usepackage{color}
+
+\newcommand{\reversevideo}[1]{\colorbox{black}{\!\phantom{X}\!\!\!\color{white}{#1\!}}}
+\fontencoding{T1}
+%\pagestyle{empty}
+%\renewcommand{\familydefault}{\sfdefault}
+%\renewcommand{\familydefault}{\rmdefault}
+
+
+\begin{document}
+
+\title{\Huge{\textbf{Unix' design}}}
+\date{}
+\author{}
+\maketitle
+
+
+\section*{Vad är Unix?}
+
+Unix är ett operativsystem från mellan 1969 och 1972,
+beroende på hur man räknar. Unix utvecklas fortfarande.
+\\
+
+\noindent
+Designen bakom Unix har influerat nästan alla
+exististerande operativsystem.
+\begin{itemize}
+\item \textbf{GNU/Linux}\\
+Designade för att vara kompatibla med Unix.
+Linux är operativsystemskärnan, GNU är alla viktiga program.
+GNU kan kombinaras med kärnor från andra Unix-liknande operativsystem,
+och Linux med annat än GNU, till exemple Andriod.
+\item \textbf{4.3 BSD, FreeBSD, OpenBSD, NetBSD, \ldots}\\
+Vidareutvecklingar av Unix och av varandra.
+\item \textbf{OS X}\\
+Vidareutveckling av NeXTSTEP, FreeBSD och NetBSD.
+\end{itemize}
+Några exempel vi inte pratade om:
+\begin{itemize}
+\item \textbf{Minix}\\
+Designat efter Unix för att undervisa om Unix. Designat
+för att vara lättare att studera än Unix. Nyare version
+av Minix är designat för att vara extremt stabilt.
+\item \textbf{Xenix OS}\\
+Microsofts och SCO:s vidarutveckling version av Unix.
+Delar av Xenix har återanvänds för att göra Windows
+mer kompatibellt med Unix.
+\item \textbf{SunOS, Solaris}\\
+Vidigt populära vidarutvecklingar av Unix fron Sun Microsystems (nu Oracle.)
+\item \textbf{Haiku}\\
+Designat efter BeOS, men är väldigt likt Unix och väldigt kompatibellt med Unix.
+\item \textbf{OS/2, eComStation}\\
+Inte utvecklat efter Unix, men är delvis kompatibellt med Unix.
+\item \textbf{Plan 9 from Bell Labs}\\
+Nytt operativsystem utvecklat för att adressera brister i Unix.
+Detta har gjorts genom att ta Unix' filosofi till nästa steg.
+Det är mer Unix-aktigt än vad Unix är.
+\end{itemize}
+
+Det enda idag populära exempelt på ett operativsystem som inte
+är Unix-liknande är Windows. Microsoft försöker dock göra
+Windows mer likt Unix-liknande operativsystem för att underlätta
+för administratörer.
+\\
+
+\noindent
+(Programspråket C utvecklades för Unix så att det skulle
+vara enkelt att få Unix att köras på alla CPU-arkitekturer
+istället för endast en, som traditionellt var fallet för
+andra operativsystem. Idag programmeras nästan alla
+operativsystem i C.)
+
+
+\section*{Filosofi}
+
+\emph{Simplistisk}. Lösningar ska vara så enkla som möjligt att utveckla.
+De behöver dock inte vara enkla att använda, det är dock ofta fallet.
+\\
+
+\noindent
+\emph{Minimalistisk}. Endast det som verkligen behövs ska vara med.
+
+
+\section*{Principer}
+
+\emph{stdin--stdout-principen}. Program kommunicerar med varandra
+genom att ett program skriver ut och ett annat program läser in
+vad det andra programmet skriver ut. Istället för att program
+kommunicerar med varandra kan de även kommunicera med användaren
+eller läsa från eller skriva till filer. För programmet är det
+ingen skillnad mellan att kommunicera med användaren, filer eller
+andra program.
+\\
+
+\noindent
+\emph{Text är universiellt}. Program kommunicerar med varandra
+och med användaren på samma sätt. Programmen använder mänskligt
+läsbar text. Detta kör det möjligt för användaren att förstå
+programmet och programmet behöver inte vet om den kommunicerar
+med användaren eller med ett annat program. Det blir också enklare
+att studera programmet.
+\\
+
+\noindent
+\emph{Komposition}. Istället för att skriva ett stort program
+skriver man många små program som arbeter tillsammans.
+\\
+
+\noindent
+\emph{Mångfald}. Program ska gå att använda på andra sätt en
+vad som förväntas av programmets utvecklare. Detta realiseras
+genom att programmet utför en enda funktion och ingenting annat.
+Dena funktion sak vara så liten och väldefineras som möjligt.
+
+
+\section*{Frågeställning}
+
+Traditionellt när ett operativsystem utvecklas funderar
+utvecklarna på vad som krävs av ett bra operativsystem.
+När Unix utvecklades var frågeställningen istället ''Vad
+kan vi ta bort för att göra Unix bättre?'' Detta leder
+till färre buggar då utvecklarna behöver skriva mindre
+kod och det finns mindre plats för att göra fel.
+Som följd av detta kan mer tid läggas där det behövs
+och på så sätt hitta de existerande buggarna och utveckla
+bättre (enklare) lösningar. Dessutom blir det enklare för
+användaren att utföra arbeten, särskild sådana som
+utvecklarna inte har tänkt på. Det blir dessutom enklare
+för utvecklare.
+
+
+\section*{Unix pipes}
+
+Unix pipes är ett sätt för att få program att arbeta
+tillsammans för att utföra ett arbete som beskrivs
+av användaren. Unix pipes är det viktigaste i hela
+Unix' design. När man använder Unix pipes, skriver
+man en såkallad shellsekvens (programmet man skriv
+i som startar programmen kallas för ett skal eller shell.)
+
+Programmen som startas körs i parallellt med varandra
+och kommunicerar med varandra i en kedja. Ett program
+skriver ut och samtidigt så läser nästa program vad
+programmet innan skriver ut. Varje program i sekvensen
+utför en specifik uppgift och inget annat.
+I början av kedjan kan antigen användaren (terminallen)
+vara (användaren skriv till programmet) eller en fil som
+läses in av det första programmet.
+I slutat av kedjan kan antigen användaren (terminallen)
+vara (användaren läser från programmet) eller en fil som
+det sista programmet skriver till.
+
+Exempel på program som brukar användas:
+\newpage
+\begin{itemize}
+\item \textbf{sort}\\
+Sorterar indata. Användaren kan välja ut datat
+ska sorteras, till exempel alfabetisk ordning,
+numerisk ordning och månadsordning.
+\item \textbf{uniq} (unique)\\
+Tar bort på varandra följande dubbletter.
+Dubbletter som inte följer varandra tas inte bort,
+därför vill man \emph{vanligtvis} sortera indatat
+först. Man kan även specifier att antalet dubbletter
+ska skrivas ut.
+\item \textbf{sed} (stream editor)\\
+Modifera indata efter ett eller flera angivna mönster.
+\item \textbf{cat} (concatenate)\\
+Skriv ut en eller flera filer.
+\item \textbf{cut}\\
+Dela ut varje rad i kolonner och välj ut vilka kolonner
+som skall behållas.
+\end{itemize}
+Några exempel vi inte pratade om:
+\begin{itemize}
+\item \textbf{grep}\\
+Liknanade \texttt{sed} men isället för att modifera rader
+så behåller \texttt{grep}, eller tar bort, de rader som
+beskrivs. Programmet kan även användas gör att behålla
+delar av raderna istället för att behålla raderna fullständigt.
+\item \textbf{diff} (difference)\\
+Jämför filer för att hitta ändringar som har gjorts.
+\item \textbf{comm} (compare)\\
+Jämför två sorterade filer radvis.
+Unix behövde inte ett rätt\-stav\-nings\-pro\-gram eftersom
+\texttt{comm} kan jämföra varje ord i en fil mot en
+ordlista:
+\begin{verbatim}
+grep -Po '[A-Za-z]+' < filen | dd conv=lcase | \
+sort | uniq | comm -23 - /usr/share/dict/english
+\end{verbatim}
+\texttt{grep -Po '[A-Za-z]+'} skriver ut alla ord på varsin rad.\\
+\texttt{dd conv=lcase} konverterar alla 'A'--'Z' till 'a'--'z'.
+\item \textbf{shuf} (shuffle)\\
+Skriv ut varje rad från indata i slumpmässig ordning.
+\item \textbf{tac} (\texttt{cat} baklänges)\\
+Skriv ut varje rad från indata i omvänd ordning.
+\item \textbf{tee}\\
+Skriv ut indata till nästa program och till andra filer.
+\item \textbf{yes}\\
+Skriv ut bokstaven 'y' om och om igen. Varje 'y' skrivs
+ut på sin egna rad. Programmet slutar skriv när nästa
+program avslutas, och pausas (automatiskt av operativsystemet)
+om nästa program inte har lästa in tillräckligt många av
+raderna som har skrivits. Vad som skall skrivas ut kan
+specifieras av användaren.
+\item \textbf{find}\\
+Skriv ut alla filer på varsin rad, samt filer som
+ligger i kataloger.
+\item \textbf{xargs}\\
+Kombineras ofta med \texttt{find}, varje rad i indata
+används som ett argument till ett program som anges.
+Exempelvis kan man utföra säker (irreversibel)
+borttagning av alla filer i katalog genom att köra\\
+\texttt{find katalogens\_namn | xargs shred -u}\\
+(\texttt{shred -u a b c} utför säker borttagning
+av filerna \texttt{a}, \texttt{b} och \texttt{c}.)
+\end{itemize}
+\*
+
+\noindent
+Under demonstrationen skriv vi en fil med namnet
+''\texttt{m}''. Filen innehåll vilka månader vi
+är födda:
+\begin{verbatim}
+feb
+apr
+apr
+oct
+nov
+jul
+feb
+\end{verbatim}
+
+\noindent
+Med programmet \texttt{cat} kunde vi skriva ut
+innehållet i filen: \texttt{cat m}
+\\
+
+\noindent
+Programmen \texttt{cat} och \texttt{sort} kan
+kombineras för att skriva ut en sorterad version
+av filen: \texttt{cat m | sort}
+\begin{verbatim}
+apr
+apr
+feb
+feb
+jul
+nov
+oct
+\end{verbatim}
+\newpage
+
+\noindent
+Denna information kan även sorteras med
+kännedomen att det är månader som är listade
+i filen: \texttt{cat m | sort -M}
+\begin{verbatim}
+feb
+feb
+apr
+apr
+jul
+oct
+nov
+\end{verbatim}
+
+\noindent
+Med hjälp av programmet \texttt{uniq} kan vi
+ta bort dubbletter:\\\texttt{cat m | sort -M | uniq}
+\begin{verbatim}
+feb
+apr
+jul
+oct
+nov
+\end{verbatim}
+
+\noindent
+Vi kan även säga till \texttt{uniq} att skriva
+antalet dubbletter:\\\texttt{cat m | sort -M | uniq -c}
+\begin{verbatim}
+      2 feb
+      2 apr
+      1 jul
+      1 oct
+      1 nov
+\end{verbatim}
+
+\noindent
+Istället för att använda programmet \texttt{cat}
+för att skriva ut filen ''\texttt{m}'', kan vi
+låta programmet \texttt{sort} läsa från filen
+direkt: \texttt{sort -M < m | uniq -c}
+\\
+
+\noindent
+Vi kan även skriv utdata till filen ''\texttt{mm}'' istället
+för till terminalen:\\\texttt{sort -M < m | uniq -c > mm}
+\\
+
+\noindent
+Med hjälp av ett litet program kan vi skriva ut ett
+diagram av informationen:\\
+\texttt{sort -M < m | uniq -c | ./hist}
+\\\\
+\tt
+\reversevideo{fe}b (2)\\
+\reversevideo{ap}r (2)\\
+\reversevideo{j}ul (1)\\
+\reversevideo{o}ct (1)\\
+\reversevideo{n}ov (1)
+\rm
+\newpage
+
+Programmet \texttt{./hist} är skrivet med samma språk
+används i terminalen för att köra program. Detta gjorde
+att programmet blev väldigt kort:
+
+\begin{verbatim}
+#!/bin/bash -e
+
+while read -r line; do
+ count=$(echo "${line}" | cut -d \  -f 1)
+ title="$(echo "${line}" | cut -d \  -f 1 --complement) (${count})"
+ if (( count > ${#title} )); then
+  title="$(printf '%s%*.s' "${title}" $((count - ${#title})) '')"
+ fi
+ echo $'\e[07m'"${title::$count}"$'\e[27m'"${title:$count}"
+done
+\end{verbatim}
+
+Det blev dessutom väldigt enkelt att förstå. Beroende
+på hur mycket man använder terminallen skulle det ta
+mellan ett halv år och två år att lära sig allt som krävs
+för att skriva detta program, utan några kunskaper i
+programmering. (Första rad i filen specifierar vilket
+program som används för att köra koden)
+
+Om man kör \texttt{sort -M | uniq -c | sort -n | tac | ./hist}
+istället för \texttt{sort -M | uniq -c | ./hist} så sorteras
+raderna i diagrammet på hur vanliga månaderna är istället
+för på månadernas ordning. Det är alltså väldigt flexibellt
+att program gör så lite som möjligt. Detta form av sortering
+skulle inte vara möjligt om programmet var skrivet med
+\texttt{sort | uniq -c} inbyggt.
+
+\begin{verbatim}
+#!/bin/bash -e
+
+sed '/^$/d' | sort "$@" | uniq -c | while read -r line; do
+ count=$(echo "${line}" | cut -d \  -f 1)
+ title="$(echo "${line}" | cut -d \  -f 1 --complement) (${count})"
+ if (( count > ${#title} )); then
+  title="$(printf '%s%*.s' "${title}" $((count - ${#title})) '')"
+ fi
+ echo $'\e[07m'"${title::$count}"$'\e[27m'"${title:$count}"
+done
+\end{verbatim}
+
+\noindent
+(\texttt{sed '/\^\$/d'} tar bort tomma rader.)
+\newpage
+
+Att utföra samma arbeta som den inflexibla versionen
+av diagramprogrammet utan att utnyttja Unix's design,
+skulle kräva ett program med tre gånger så lång kod.
+
+\begin{verbatim}
+#!/bin/bash -e
+
+declare -A events
+while read -r line; do
+ if [ "${line}" = '' ]; then
+  continue
+ fi
+ if [ -z ${events["${line}"]} ]; then
+  events["${line}"]=1
+ else
+  : $(( events["${line}"]++ ))
+ fi
+done
+tmpfile="$(mktemp)"
+for title in "${!events[@]}"; do
+ echo "${title}";
+done | sort "$@" > "${tmpfile}"
+while read -r title; do
+ count=${events["${title}"]}
+ title="${title} (${count})"
+ if (( count > ${#title} )); then
+  title="$(printf '%s%*.s' "${title}" $((count - ${#title})) '')"
+ fi
+ echo $'\e[07m'"${title::$count}"$'\e[27m'"${title:$count}"
+done < "${tmpfile}"
+rm -- "${tmpfile}"
+\end{verbatim}
+
+Denna kod är inte bara mycket svårare att förstå,
+den är också svårare att skriva och det är mycket
+enkelt att köra slavfel (speciellt eftersom det
+inte är skrivet i ett ordentligt programspråk.)
+Denna kod använder dock programmet \texttt{sort}
+för att sorter händelserna som ritas ut i diagrammet,
+och låter användera välja hur de ska sorteras genom
+programmet \texttt{sort}. Hade \texttt{sort} inte
+utnyttjats med detta sätta hade programmet blivit
+väldigt mycket längre.
+
+
+
+
+\end{document}
+
