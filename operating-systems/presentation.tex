@@ -1,0 +1,352 @@
+\documentclass[compress, final]{beamer}
+
+\mode<presentation>
+{
+  \setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
+  
+  \usetheme{Warsaw}
+  
+  \setbeamercovered{transparent}
+  \setbeamertemplate{headline}{}
+  %\setbeamertemplate{footline}{}
+  %\setbeamersize{text margin left=0.5cm}
+}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{verbatim}
+
+\title{Skillnaden mellan operativsystem}
+\date{}
+\subject{Talks}
+\beamerdefaultoverlayspecification{<+->}
+\beamertemplatenavigationsymbolsempty
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+\section{GNU}
+
+\begin{frame}{GNU}
+  \begin{minipage}[l]{0.60\textwidth}
+    \textbf{GNU's not Unix} (GNU)
+    \begin{itemize}
+      \item Richard Stallman, 1983
+      \item Frihet som mål
+      \item Viss överförbarhet som ''mål''
+      \item Unix var populärt och enkelt att ersätta
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}[r]{0.35\textwidth}
+    \pgfdeclareimage[width=\textwidth]{gnu}{gnu}
+    \pgfuseimage{gnu}
+  \end{minipage}
+\end{frame}
+
+
+\section{GNU Hurd}
+
+\begin{frame}{GNU Hurd}
+  \begin{minipage}[l]{0.60\textwidth}
+    \textbf{GNU Hurd}
+    \begin{itemize}
+      \item Hird of Unix-Replacing Daemons
+      \item Hurd of Interfaces Representing Depth
+      \item Thomas Bushnell, 1990
+      \item Kärnan till GNU
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}[r]{0.35\textwidth}
+    \pgfdeclareimage[width=\textwidth]{hurd}{hurd}
+    \pgfuseimage{hurd}
+  \end{minipage}
+\end{frame}
+
+
+\section{Linux}
+
+\begin{frame}{Linux}
+  \begin{minipage}[l]{0.60\textwidth}
+    \textbf{Linux}
+    \begin{itemize}
+      \item Linus Torvalds, 1991
+      \item Ville ha någonting hemma som liknar Unix
+      \item Linux var ett arbetsnamn
+      \item Endast kärna
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}[r]{0.35\textwidth}
+    \pgfdeclareimage[width=\textwidth]{linux}{linux}
+    \pgfuseimage{linux}
+  \end{minipage}
+\end{frame}
+
+
+\section{BSD}
+
+\begin{frame}{BSD}
+  \textbf{Berkeley Software Distribution} (BSD)
+  \begin{itemize}
+    \item Bill Joy, 1977
+    \item Modifiera och vidareutveckla Unix för Berkeley
+    \item Andra universitet var intresserade av BSD
+  \end{itemize}
+\end{frame}
+
+
+\section{FreeBSD}
+
+\begin{frame}{FreeBSD}
+  \begin{minipage}[l]{0.60\textwidth}
+    \textbf{FreeBSD}
+    \begin{itemize}
+      \item 1993
+      \item Prestanda som mål
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}[r]{0.35\textwidth}
+    \pgfdeclareimage[width=\textwidth]{freebsd}{freebsd}
+    \pgfuseimage{freebsd}
+  \end{minipage}
+\end{frame}
+
+
+\section{NetBSD}
+
+\begin{frame}{NetBSD}
+  \begin{minipage}[l]{0.60\textwidth}
+    \textbf{NetBSD}
+    \begin{itemize}
+      \item Chris Demetriou, Theo de Raadt, Adam Glass och Charles Hannum, 1993
+      \item Överförbarhet som mål
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}[r]{0.35\textwidth}
+    \pgfdeclareimage[width=\textwidth]{netbsd}{netbsd}
+    \pgfuseimage{netbsd}
+  \end{minipage}
+\end{frame}
+
+
+\section{OpenBSD}
+
+\begin{frame}{OpenBSD}
+  \begin{minipage}[l]{0.60\textwidth}
+    \textbf{OpenBSD}
+    \begin{itemize}
+      \item Theo de Raadt, 1995
+      \item Säkerhet som mål
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}[r]{0.35\textwidth}
+    \pgfdeclareimage[width=\textwidth]{openbsd}{openbsd}
+    \pgfuseimage{openbsd}
+  \end{minipage}
+\end{frame}
+
+
+\section{DragonFly BSD}
+
+\begin{frame}{DragonFly BSD}
+  \begin{minipage}[l]{0.60\textwidth}
+    \textbf{DragonFly BSD}
+    \begin{itemize}
+      \item Matt Dillon, 2003
+      \item Skalbarhet som mål
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}[r]{0.35\textwidth}
+    \pgfdeclareimage[width=\textwidth]{dragonflybsd}{dragonflybsd}
+    \pgfuseimage{dragonflybsd}
+  \end{minipage}
+\end{frame}
+
+
+\section{MINIX}
+
+\begin{frame}{MINIX}
+  \begin{minipage}[l]{0.60\textwidth}
+    \textbf{MINIX}
+    \begin{itemize}
+      \item Andrew Tanenbaum, 1987
+      \item Utvecklat för utlärning om operativsystem
+      \item Stabilitet som nytt mål
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}[r]{0.35\textwidth}
+    \pgfdeclareimage[width=\textwidth]{minix}{minix}
+    \pgfuseimage{minix}
+  \end{minipage}
+\end{frame}
+
+
+\section{Plan 9 from Bell Labs}
+
+\begin{frame}{Plan 9 from Bell Labs}
+  \begin{minipage}[l]{0.60\textwidth}
+    \textbf{Plan 9 from Bell Labs}
+    \begin{itemize}
+      \item Bell Labs, 1980-talet
+      \item Designat för distribuerad databehandling
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}[r]{0.35\textwidth}
+    \pgfdeclareimage[width=\textwidth]{plan9}{plan9}
+    \pgfuseimage{plan9}
+  \end{minipage}
+\end{frame}
+
+
+\section{POSIX}
+
+\begin{frame}{POSIX}
+  \textbf{Portable Operating System Interface} (POSIX)
+  \begin{itemize}
+    \item Institute of Electrical and Electronics Engineer, 1988
+    \item Standardisering av Unix-liknande operativsystem
+  \end{itemize}
+\end{frame}
+
+
+\section{Megalitisk kärna}
+
+\begin{frame}{Megalitisk kärna}
+  \textbf{Megalitisk kärna}
+  \begin{itemize}
+    \item Alla program är inbyggda i kärnan
+    \item Vanliga för realtidsoperativsystem
+  \end{itemize}
+\end{frame}
+
+
+\section{Monolitisk kärna}
+
+\begin{frame}{Monolitisk kärna}
+  \textbf{Monolitisk kärna}
+  \begin{itemize}
+    \item Traditionell design
+    \item Har hand om bland annat
+    \begin{itemize}
+      \item Filsystem
+      \item Systemanrop
+      \item Interprocesskommunikation
+      \item Processplanering
+      \item Virtuellt minne
+      \item Hårdvara
+      \item Drivrutiner
+    \end{itemize}
+    \item Är vanligtvis modulära
+  \end{itemize}
+\end{frame}
+
+
+\section{Monolitisk kärna}
+
+\begin{frame}{Hybridkärna}
+  \textbf{Hybridkärna}
+  \begin{itemize}
+    \item Monolitisk?
+    \item Har hand om bland annat
+    \begin{itemize}
+      \item Interprocesskommunikation
+      \item Processplanering
+      \item Virtuellt minne
+      \item Hårdvara
+    \end{itemize}
+    \item Exempel på implementationer
+    \begin{itemize}
+      \item Windows NT
+      \item XNU (OS X)
+      \item Darwin (OS X)
+      \item Plan 9 from Bell Labs
+      \item Haiku
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\section{Mikrokärna}
+
+\begin{frame}{Mikrokärna}
+  \textbf{Mikrokärna}
+  \begin{itemize}
+    \item Har hand om bland annat
+    \begin{itemize}
+      \item Minimal Interprocesskommunikation
+      \item Processplanering
+      \item Virtuellt minne
+    \end{itemize}
+    \item Andra viktiga funktioner hanteras av sevrar
+    \item Exempel på implementationer
+    \begin{itemize}
+      \item Mach
+      \item GNU Hurd
+      \item L4
+      \item MINIX
+      \item AmigaOS
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\section{Nano-/pikokärna}
+
+\begin{frame}{Nano-/pikokärna}
+  \textbf{Nano-/pikokärna}
+  \begin{itemize}
+    \item Mikrokärna?
+    \item Exempel på implementationer
+    \begin{itemize}
+      \item Mac OS 9
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\section{Exokärna}
+
+\begin{frame}{Exokärna}
+  \textbf{Exokärna}
+  \begin{itemize}
+    \item Gör så gott som ingenting
+    \item Mål: biblioteksoperativssystem
+    \item Forskningsområde
+  \end{itemize}
+\end{frame}
+
+
+\section{Virtualiserande kärna}
+
+\begin{frame}{Virtualiserande kärna}
+  \textbf{Virtualiserande kärna}, typ 1-hypervisor
+  \begin{itemize}
+    \item Exokärna
+    \item Tillåter flera operativsystem att köras samtidigt
+    \item Exempel på implementationer
+    \begin{itemize}
+      \item Hyper-V
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\section{Cachekärna}
+
+\begin{frame}{Cachekärna}
+  \textbf{Cachekärna}
+  \begin{itemize}
+    \item Exokärna
+    \item Exempel på implementationer
+    \begin{itemize}
+      \item Stanford cache kernel
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\end{document}
+
